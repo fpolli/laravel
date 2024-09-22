@@ -1,0 +1,11 @@
+<img 
+  src='/assets/images/logo-{{config('app.site')}}.png' 
+  alt='{{config('app.name')}}'
+>
+<span 
+  @class([
+    'brand-font'
+  ])
+>
+  {{config('app.name')}}
+</span>

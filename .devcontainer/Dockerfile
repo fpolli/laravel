@@ -15,6 +15,8 @@ RUN apt-get install -y \
   libzip-dev \
   && docker-php-ext-install zip
 
+RUN apt-get install libnss3-tools -y
+
 COPY php.ini /usr/local/etc/php
 
 RUN apt-get install -y git
@@ -33,4 +35,12 @@ RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && \
 
 RUN apt-get install -y ffmpeg
 
-ENTRYPOINT ["php", "artisan", "octane:frankenphp"]
+RUN composer self-update
+
+#RUN composer create-project laravel/laravel sobb
+
+#RUN composer require laravel/octane
+
+#RUN php artisan octane:install
+
+#ENTRYPOINT ["php", "artisan", "octane:frankenphp"]
